@@ -139,9 +139,10 @@
          }
         function lw7() {
                 var xhr = new XMLHttpRequest();
-                var i = document.getElementById("inp5").value;
-                var j = "  --kubeconfig admin.conf";
-                xhr.open("GET","http://192.168.99.101/cgi-bin/k8s.py?x="+i+j,true);
+                var i = "kubectl "
+                var j = document.getElementById("inp5").value;
+                var k = "  --kubeconfig admin.conf";
+                xhr.open("GET","http://192.168.99.101/cgi-bin/k8s.py?x="+i+j+k,true);
                 xhr.send();
                 xhr.onload = function(){
                         var output = xhr.responseText;
