@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<body>
+<style>
+#d12{
+        overflow: auto;
+        height: 100%;
+        width: 100%;
+}
+#img2 {
+        height: auto;
+        width: 100%;
+}
+#d9 {
+  padding-top: 50px;
+  padding-right: 30px;
+  padding-bottom: 50px;
+  padding-left: 80px;
+  margin-left: 10%;
+}
+#img1 {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+#btn2 {
+  margin-left: 65%;
+}
+#btn3 {
+  margin-right: 10%;
+}
+.hide {
+  display: none;
+}
+
+.myDIV:hover + .hide {
+  display: block;
+  color: darkblue;
+}
+</style>
+<script>
+        function lw() {
+                var xhr = new XMLHttpRequest();
+                var i = "kubectl get pods --kubeconfig admin.conf";
+                xhr.open("GET","http://192.168.99.101/cgi-bin/k8s.py?x="+i,true);
+                xhr.send();
+                xhr.onload = function(){
+                        var output = xhr.responseText;
+                        document.getElementById('d8').innerHTML = output;
+         }
+         }
+        function lw1(){
+                var xhr = new XMLHttpRequest();
+                var i = "kubectl describe pod ";
+                var j = document.getElementById("inp6").value;
+                var k = " --kubeconfig admin.conf";
+                xhr.open("GET","http://192.168.99.101/cgi-bin/k8s.py?x="+i+j+k,true);
+                xhr.send();
+                xhr.onload = function(){
+                        var output = xhr.responseText;
+                        document.getElementById('d8').innerHTML = output;
+         }
+         }
+        function lw2(){
+                var xhr = new XMLHttpRequest();
+                var i = document.getElementById("inp1").value;
+                var j = document.getElementById("inp7").value;
+                var k = "kubectl create deployment ";
+                var m = "  --kubeconfig admin.conf";
+                var o = k+i+" --image="+j+m;
+                xhr.open("GET","http://192.168.99.101/cgi-bin/k8s.py?x="+o,true);
+                xhr.send();
+                xhr.onload = function(){
+                        var output = xhr.responseText;
+                        document.getElementById('d8').innerHTML = output;
+         }
+         }
+        function lw3(){
+                var xhr = new XMLHttpRequest();
+                var k = document.getElementById("inp2").value;
+                var i = "kubectl scale deployment ";
+                var j = " --kubeconfig admin.conf";
+                var o = i+k+" --replicas="+3+j;
+                xhr.open("GET","http://192.168.99.101/cgi-bin/k8s.py?x="+o,true);
+                xhr.send();
+                xhr.onload = function(){
+                        var output = xhr.responseText;
+                        document.getElementById('d8').innerHTML = output;
+         }
+         }
+
+        function social(path){
+                var i = path;
+                window.open(path);
+
+        }
+        function lw4() {
+                var xhr = new XMLHttpRequest();
+                var i = document.getElementById("inp1").value;
+                var j = document.getElementById("inp7").value;
+                var k = " kubectl run ";
+                var l = " --kubeconfig admin.conf ";
+                var o = k+i+" --image="+j+l
+                xhr.open("GET","http://192.168.99.101/cgi-bin/k8s.py?x="+o,true);
+                xhr.send();
+                xhr.onload = function(){
+                        var output = xhr.responseText;
+                        document.getElementById('d8').innerHTML = output;
+         }
+         }
+        function lw5(){
+                var xhr = new XMLHttpRequest();
+                var i = "kubectl delete pod "
+                var j = " --kubeconfig admin.conf";
+                var k = document.getElementById("inp3").value;
+                xhr.open("GET","http://192.168.99.101/cgi-bin/k8s.py?x="+i+k+j,true);
+                xhr.send();
+                xhr.onload = function(){
+                        var output = xhr.responseText;
+                        document.getElementById('d8').innerHTML = output;
+         }
+         }
+        function lw6(){
+                var xhr = new XMLHttpRequest();
+                var i = "kubectl expose deploy ";
+                var j = document.getElementById("inp4").value;
+                var k = document.getElementById("inp8").value;
+                var l = " --kubeconfig admin.conf";
+                var o = i+j+" --type=NodePort --Port="+k+l;
+                xhr.open("GET","http://192.168.99.101/cgi-bin/k8s.py?x="+i+j,true);
+                xhr.send();
+                xhr.onload = function(){
+                        var output = xhr.responseText;
+                        document.getElementById('d8').innerHTML = output;
+         }
+         }
+        function lw7() {
+                var xhr = new XMLHttpRequest();
+                var i = document.getElementById("inp5").value;
+                var j = "  --kubeconfig admin.conf";
+                xhr.open("GET","http://192.168.99.101/cgi-bin/k8s.py?x="+i+j,true);
+                xhr.send();
+                xhr.onload = function(){
+                        var output = xhr.responseText;
+                        document.getElementById('d8').innerHTML = output;
+         }
+         }
+        function lw8() {
+                var xhr = new XMLHttpRequest();
+                var i = "kubectl get deploy --kubeconfig admin.conf";
+                xhr.open("GET","http://192.168.99.101/cgi-bin/k8s.py?x="+i,true);
+                xhr.send();
+                xhr.onload = function(){
+                        var output = xhr.responseText;
+                        document.getElementById('d8').innerHTML = output;
+         }
+         }
+        function lw9() {
+                var xhr = new XMLHttpRequest();
+                var i = "kubectl deleteall --all --kubeconfig admin.conf";
+                xhr.open("GET","http://192.168.99.101/cgi-bin/k8s.py?x="+i,true);
+                xhr.send();
+                xhr.onload = function(){
+                        var output = xhr.responseText;
+                        document.getElementById('d8').innerHTML = output;
+         }
+         }
+</script>
+<div class="w3-sidebar w3-bar-block w3-card w3-animate-left" style="display:none" id="mySidebar">
+  <button class="w3-bar-item w3-button w3-large"
+  onclick="w3_close()">Close &times;</button>
+  <a id='d2' onclick='lw()' class="w3-bar-item w3-button"><b>View Pods</b></a>
+  <a id='d3' onclick='lw1()' class="w3-bar-item w3-button"><div class="myDIV"><b>Describing Pods</b></div>
+  <div class="hide">Enter the name of the pod below</div></a>
+  <p>Enter Pod Name: <input id='inp6'><button onclick='lw1();'>Click</button></p>
+  <a id='d2' onclick='lw8()' class="w3-bar-item w3-button"><b>View Deployments</b></a>
+  <a id='d6' onclick='lw4()' class="w3-bar-item w3-button"><b>To Launch Pods</b></a>
+  <a id='d4' onclick='lw2()' class="w3-bar-item w3-button"><div class="myDIV"><b>To Launch Deployment</b></div>
+  <div class="hide">Enter the name and image name with tag respectively</div></a>
+  <p>Pod Name- <input id='inp1'>Image:tag- <input id='inp7'><button onclick='lw2();lw4();'>Click</button></p>
+  <a id='d5' onclick='lw3()' class="w3-bar-item w3-button"><div class="myDIV"><b>To Scale Deployment</b></div>
+  <div class="hide">Enter the Deploy name to scale it</div></a>
+  <p>Deploy Name: <input id='inp2'><button onclick='lw3();'>Click</button></p>
+  <a id='d7' onclick='lw5()' class="w3-bar-item w3-button"><div class="myDIV"><b>Deleting Pods</b></div>
+  <div class="hide">Enter the Pod name below</div></a>
+  <p>Enter Pod Name:<input id='inp3'><button onclick='lw5();'>Click</button></p>
+  <a id='d2' onclick='lw6()' class="w3-bar-item w3-button"><div class="myDIV"><b>Expose a Service</b></div>
+  <div class="hide">Enter the deployment name and Port number</div></a>
+  <p>Deployment Name- <input id='inp4'> Port-No.- <input id='inp8'><button onclick='lw6();'>Click</button></p>
+  <a id='d2' onclick='lw9()' class="w3-bar-item w3-button"><b>Click here to delete complete Environment</b></a>
+  <a id='d10' onclick='lw7()' class="w3-bar-item w3-button"><div class="myDIV"><b>[root@localhost ~]#</b></div>
+  <div class="hide">Enter the Custom code here</div></a>
+  <p><input id='inp5'><button onclick='lw7();'>Click</button></p>
+</div>
+
+<div id="main">
+
+<div class="w3-black">
+  <button id="openNav" class="w3-button w3-black w3-xlarge" onclick="w3_open()">&#9776;</button>
+  <div class="w3-container">
+          <h1>Kubernetes App &nbsp;<i id='btn2' onclick="social('https://www.linkedin.com/in/shreya-garg-1577241b7/')" class="fa fa-linkedin-square" style="font-size:48px;color:darkcyan"></i>
+          <i id='btn3' onclick="social('https://github.com/ShReYaGaRG021')" class="fa fa-github" style="font-size:48px;color:white"></i></h1>
+  </div>
+</div>
+
+
+<div id='d7' class="w3-container">
+<img id='img1' src="https://www.suse.com/c/wp-content/uploads/2019/09/kubernetes-logo.png" style="width:40%;height:80px">
+<div id='d11' class="w3-display-container w3-text-white">
+<img id='img2' src="https://c1.wallpaperflare.com/preview/493/422/428/light-bulb-filament-vintage-lamp-close.jpg" alt="Lights" >
+<div id='d12' class="w3-display-topleft w3-container"><pre><p id='d8'>[root@localhost ]#</p></pre>
+</div>
+</div>
+</div>
+
+<script>
+function w3_open() {
+  document.getElementById("main").style.marginLeft = "25%";
+  document.getElementById("mySidebar").style.width = "25%";
+  document.getElementById("mySidebar").style.display = "block";
+  document.getElementById("openNav").style.display = 'none';
+  document.getElementById("btn2").style.marginLeft = "auto";
+  document.getElementById("btn3").style.marginRight = "auto";
+
+}
+function w3_close() {
+  document.getElementById("main").style.marginLeft = "0%";
+  document.getElementById("mySidebar").style.display = "none";
+  document.getElementById("openNav").style.display = "inline-block";
+  document.getElementById("btn2").style.marginLeft = "65%";
+  document.getElementById("btn3").style.marginRight = "10%";
+}
+
+</script>
+
+</body>
+</html>  
