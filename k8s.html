@@ -161,7 +161,7 @@
          }
         function lw9() {
                 var xhr = new XMLHttpRequest();
-                var i = "kubectl deleteall --all --kubeconfig admin.conf";
+                var i = "kubectl delete all --all --kubeconfig admin.conf";
                 xhr.open("GET","http://192.168.99.101/cgi-bin/k8s.py?x="+i,true);
                 xhr.send();
                 xhr.onload = function(){
