@@ -25,6 +25,7 @@ Talking about Kubernetes, it is an open-source container-orchestration system fo
 This website will only take the required name as input and all the commands will run in backend, so there is no requirement to write the whole command, also there is a window which will allow the user to write its own commands (Linux based commands) who is apprised to it.
 
 REQUIREMENTS :
+
 Hard-ware requirements: 
 8GB RAM CPU
 Windows 10 
